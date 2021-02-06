@@ -67,7 +67,7 @@ the struct queue qt is the call by value it is used when we are just reading dat
 void displayqueue(struct queue qt)
 {
   int i; //loop variable
-  for(i=0;i<qt.rear;i++)
+  for(i=0;i<=qt.rear;i++) //because qt.rear is already -1 initially we dont need to do i<qt.rear instead we will do i<=qt.rear
   {
   	printf("%d\n", qt.q[i]);
   }
