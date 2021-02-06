@@ -11,6 +11,7 @@ struct QueueLL // here struct QueueLL =  struct node
 	struct QueueLL *nextQueue; // struct QueueLL *nextQueue; = struct node *next;
 };
 struct QueueLL *startQueue=NULL; //struct QueueLL *startQueue = struct node *start;
+struct QueueLL *tailQueue=NULL;   
 
 /*
 this function is used to enter elements inside the queue
@@ -28,16 +29,12 @@ void enqueueLL()
     temp->nextQueue=NULL;
     if(startQueue==NULL)
     {
-    	startQueue=temp;
+    	startQueue=tailQueue=temp;
     }
     else
     {
-    	ptr = startQueue;
-    	while(ptr->nextQueue!=NULL)
-    	{
-    		ptr=ptr->nextQueue;
-    	}
-    	ptr->nextQueue=temp;
+        tailQueue->nextQueue = temp;
+    	tailQueue=temp; //this will set the address of the last node to the tail pointer in the linked list
     }
 }
 
